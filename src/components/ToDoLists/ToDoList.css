@@ -1,6 +1,6 @@
 .toDo-list {
   max-width: 35rem;
-  background-color: blue;
+  background-image: linear-gradient(30deg, #5cae49, #4d8ef7);
   margin: 1rem auto;
   padding: 1rem;
   color: #eee;

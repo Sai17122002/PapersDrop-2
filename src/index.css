@@ -8,5 +8,7 @@ html {
 
 body {
   margin: 0;
-  background: whitesmoke;
+  /* background-image: linear-gradient(30deg, #5cae49, #4d8ef7); */
+  background: dodgerblue linear-gradient(22deg, aqua, dodgerblue, deeppink)
+    fixed;
 }

@@ -6,6 +6,14 @@
 
 .form-wrapper form input {
   width: 100%;
-  padding: 0.25rem;
+  padding: 0.4rem;
   margin-bottom: 1rem;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.form-wrapper form input:hover {
+  outline: none;
+  border: none;
 }

@@ -21,7 +21,12 @@ function ToDoForm(props) {
     <Card className={styles["form-wrapper"]}>
       <form onSubmit={FormHandler}>
         <h2>To Do List</h2>
-        <input type="text" onChange={InputHandler} value={value} />
+        <input
+          type="text"
+          onChange={InputHandler}
+          value={value}
+          className="input"
+        />
         <Button>Add ToDo</Button>
       </form>
     </Card>
