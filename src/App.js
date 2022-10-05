@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import ToDoForm from "./components/ToDoLists/ToDoForm.js";
+import ToDoLists from "./components/ToDoLists/ToDoLists.js";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function App() {
+  const [toDoList, setToDoList] = useState([]);
+  const client = axios.create({
+    baseURL: "https://jsonplaceholder.typicode.com/posts",
+  });
+  useEffect(() => {
+    client.get().then((response) => {
+      setToDoList(response.data);
+    });
+  }, []);
+
+  const AddToDo = (text) => {
+    setToDoList((prevobj) => {
+      const textObj = [text, ...prevobj];
+      return textObj;
+    });
+  };
+
+  const DeleteList = (text) => {
+    const arr = toDoList.filter((data) => {
+      return data.title === text;
+    });
+    client.delete(`${arr[0].id}`);
+    setToDoList(
+      toDoList.filter((post) => {
+        return post.id !== arr[0].id;
+      })
+    );
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ToDoForm AddToDo={AddToDo} />
+      <ToDoLists DeleteToDo={DeleteList} CurrentToDoList={toDoList} />
+    </>
   );
 }
 

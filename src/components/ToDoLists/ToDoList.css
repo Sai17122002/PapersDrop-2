@@ -1,0 +1,8 @@
+.toDo-list {
+  max-width: 35rem;
+  background-color: blue;
+  margin: 1rem auto;
+  padding: 1rem;
+  color: #eee;
+  cursor: pointer;
+}
